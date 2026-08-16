@@ -8,7 +8,9 @@ import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
+@CrossOrigin(origins = "http://localhost:3000")
 @RestController
 @RequestMapping("/orders")
 public class OrderController {
