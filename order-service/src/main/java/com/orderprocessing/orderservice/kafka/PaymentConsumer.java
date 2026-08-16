@@ -26,6 +26,12 @@ public class PaymentConsumer {
         updateOrderStatus(message, "FAILED");
     }
 
+    @KafkaListener(topics = "inventory-failed", groupId = "order-service-group")
+    public void listenInventoryFailed(String message) {
+        System.out.println("Order Service received (inventory failed): " + message);
+        updateOrderStatus(message, "FAILED");
+    }
+
     private void updateOrderStatus(String message, String newStatus) {
         // Message format: "Order Created: ID=X, Product=Y"
         String idPart = message.substring(message.indexOf("ID=") + 3);
