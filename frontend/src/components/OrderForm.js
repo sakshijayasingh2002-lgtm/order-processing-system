@@ -13,7 +13,7 @@ function OrderForm({ onOrderPlaced }) {
     setLoading(true);
     setToast(null);
     try {
-      const response = await axios.post('http://localhost:8081/orders', {
+       const response = await axios.post(`${process.env.REACT_APP_API_URL}/orders`, {
         productName,
         quantity: parseInt(quantity),
         price: parseFloat(price),
