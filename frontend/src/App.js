@@ -10,10 +10,18 @@ function App() {
   };
 
   return (
-    <div style={{ maxWidth: '800px', margin: '40px auto', fontFamily: 'Arial, sans-serif' }}>
-      <h1>Order Processing System</h1>
-      <OrderForm onOrderPlaced={handleOrderPlaced} />
-      <OrderList refreshTrigger={refreshTrigger} />
+    <div className="min-h-screen bg-gray-50">
+      <header className="bg-white border-b border-gray-200 shadow-sm">
+        <div className="max-w-4xl mx-auto px-6 py-5">
+          <h1 className="text-2xl font-bold text-gray-900">Order Processing System</h1>
+          <p className="text-sm text-gray-500 mt-1">Event-driven order pipeline powered by Kafka</p>
+        </div>
+      </header>
+
+      <main className="max-w-4xl mx-auto px-6 py-8 space-y-6">
+        <OrderForm onOrderPlaced={handleOrderPlaced} />
+        <OrderList refreshTrigger={refreshTrigger} />
+      </main>
     </div>
   );
 }
